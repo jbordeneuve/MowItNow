@@ -1,0 +1,70 @@
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:simpleType name="orientation">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="N" />
+			<xs:enumeration value="E" />
+			<xs:enumeration value="S" />
+			<xs:enumeration value="W" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="nonNegativeInt">
+		<xs:restriction base="xs:int">
+			<xs:minExclusive value="0" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="lawn">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="length" type="nonNegativeInt" use="required" />
+				<xs:attribute name="width" type="nonNegativeInt" use="required" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="location">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="x" type="nonNegativeInt" use="required" />
+				<xs:attribute name="y" type="nonNegativeInt" use="required" />
+				<xs:attribute name="orientation" type="orientation"
+					use="required" />
+
+				<!-- <xs:simpleType> <xs:restriction base="xs:string"> <xs:pattern value="[NEWS]" 
+					/> </xs:restriction> </xs:simpleType> -->
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="mower">
+		<xs:sequence>
+			<xs:element name="location" type="location" />
+			<xs:element name="path">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[DGA]*" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="mowitnow">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="lawn" type="lawn" />
+				<xs:element name="mowers">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="mower" type="mower" maxOccurs="unbounded"
+								minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

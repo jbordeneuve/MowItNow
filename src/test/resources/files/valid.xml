@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mowitnow>
+	<lawn length="5" width="5" />
+	<mowers>
+		<mower>
+			<location x="1" y="2" orientation="N" />
+			<path>GAGAGAGAA</path>
+		</mower>
+		<mower>
+			<location x="3" y="3" orientation="E" />
+			<path>AADAADADDA</path>
+		</mower>
+	</mowers>
+</mowitnow>
