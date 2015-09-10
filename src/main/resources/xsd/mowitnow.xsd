@@ -10,6 +10,14 @@
 		</xs:restriction>
 	</xs:simpleType>
 
+	<xs:simpleType name="move">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="D" />
+			<xs:enumeration value="G" />
+			<xs:enumeration value="A" />
+		</xs:restriction>
+	</xs:simpleType>
+
 	<xs:simpleType name="nonNegativeInt">
 		<xs:restriction base="xs:int">
 			<xs:minExclusive value="0" />
@@ -25,18 +33,23 @@
 		</xs:simpleContent>
 	</xs:complexType>
 
-	<xs:complexType name="location">
+	<xs:complexType name="coordinate">
 		<xs:simpleContent>
 			<xs:extension base="xs:string">
 				<xs:attribute name="x" type="nonNegativeInt" use="required" />
 				<xs:attribute name="y" type="nonNegativeInt" use="required" />
-				<xs:attribute name="orientation" type="orientation"
-					use="required" />
-
-				<!-- <xs:simpleType> <xs:restriction base="xs:string"> <xs:pattern value="[NEWS]" 
-					/> </xs:restriction> </xs:simpleType> -->
 			</xs:extension>
 		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="location">
+		<xs:sequence>
+			<xs:element name="coordinate" type="coordinate"/>
+			<xs:element name="orientation" type="orientation"/>
+
+			<!-- <xs:simpleType> <xs:restriction base="xs:string"> <xs:pattern value="[NEWS]" 
+				/> </xs:restriction> </xs:simpleType> -->
+		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="mower">
@@ -44,9 +57,10 @@
 			<xs:element name="location" type="location" />
 			<xs:element name="path">
 				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:pattern value="[DGA]*" />
-					</xs:restriction>
+					<xs:list itemType="move" />
+
+					<!-- <xs:restriction base="xs:string"> <xs:pattern value="[DGA]*" /> 
+						</xs:restriction> -->
 				</xs:simpleType>
 			</xs:element>
 		</xs:sequence>
