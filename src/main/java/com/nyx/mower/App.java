@@ -8,23 +8,22 @@ import com.nyx.mower.model.Mowitnow;
 
 public class App {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		final Setting setting = new Setting();
+        final Setting setting = new Setting();
 
-		final JCommander jc = new JCommander(setting);
+        final JCommander jc = new JCommander(setting);
 
-		try {
-			jc.parse(args);
+        try {
+            jc.parse(args);
 
-			final Mowitnow mowitnow = setting.mowitnow;
+            final Mowitnow mowitnow = setting.mowitnow;
 
-			final MowerController moveService = new MowerController(
-					mowitnow.getLawn(), mowitnow.getMowers().getMower());
+            final MowerController moveService = new MowerController(mowitnow.getLawn(), mowitnow.getMowers().getMower());
 
-			moveService.run();
-		} catch (ParameterException e) {
-			jc.usage();
-		}
-	}
+            moveService.run();
+        } catch (ParameterException e) {
+            jc.usage();
+        }
+    }
 }
