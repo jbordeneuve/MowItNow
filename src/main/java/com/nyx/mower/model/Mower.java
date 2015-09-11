@@ -8,21 +8,16 @@
 
 package com.nyx.mower.model;
 
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlList;
-import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for mower complex type.
- * 
+ * <p>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="mower">
  *   &lt;complexContent>
@@ -39,13 +34,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "mower", propOrder = {
-    "location",
-    "path"
+        "location",
+        "path"
 })
 public class Mower {
 
@@ -57,11 +50,9 @@ public class Mower {
 
     /**
      * Gets the value of the location property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Location }
-     *     
+     *
+     * @return possible object is
+     * {@link Location }
      */
     public Location getLocation() {
         return location;
@@ -69,11 +60,9 @@ public class Mower {
 
     /**
      * Sets the value of the location property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Location }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Location }
      */
     public void setLocation(Location value) {
         this.location = value;
@@ -81,25 +70,23 @@ public class Mower {
 
     /**
      * Gets the value of the path property.
-     * 
+     * <p>
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the path property.
-     * 
+     * <p>
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getPath().add(newItem);
      * </pre>
-     * 
-     * 
+     * <p>
+     * <p>
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Move }
-     * 
-     * 
      */
     public List<Move> getPath() {
         if (path == null) {
@@ -108,4 +95,15 @@ public class Mower {
         return this.path;
     }
 
+    public void turnToRight(){
+        location.setOrientation(location.getOrientation().turnToRight());
+    }
+
+    public void turnToLeft(){
+        location.setOrientation(location.getOrientation().turnToLeft());
+    }
+
+    public void forward() {
+        location = location.getOrientation().move(location);
+    }
 }

@@ -13,12 +13,12 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>
  * Java class for move.
- * 
+ * <p>
  * <p>
  * The following schema fragment specifies the expected content contained within
  * this class.
  * <p>
- * 
+ * <p>
  * <pre>
  * &lt;simpleType name="move">
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -28,7 +28,6 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlType(name = "move")
 @XmlEnum
@@ -36,40 +35,22 @@ public enum Move {
 
     D {
         @Override
-        public Location move(Location location) {
-
-            location.setOrientation(location.orientation.next());
-
-            return location;
+        public void move(Mower mower) {
+            mower.turnToRight();
         }
     },
     G {
         @Override
-        public Location move(Location location) {
-
-            location.setOrientation(location.orientation.previous());
-
-            return location;
+        public void move(Mower mower) {
+            mower.turnToLeft();
         }
     },
     A {
         @Override
-        public Location move(Location location) {
-
-            location.setCoordinate(location.orientation.move(location.coordinate));
-
-            return location;
+        public void move(Mower mower) {
+            mower.forward();
         }
     };
 
-    public String value() {
-        return name();
-    }
-
-    public static Move fromValue(String v) {
-        return valueOf(v);
-    }
-
-    public abstract Location move(Location location);
-
+    public abstract void move(Mower mower);
 }

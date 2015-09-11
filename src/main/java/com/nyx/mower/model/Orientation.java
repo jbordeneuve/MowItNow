@@ -13,12 +13,12 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>
  * Classe Java pour orientation.
- * 
+ * <p>
  * <p>
  * Le fragment de schéma suivant indique le contenu attendu figurant dans cette
  * classe.
  * <p>
- * 
+ * <p>
  * <pre>
  * &lt;simpleType name="orientation">
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -29,61 +29,43 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlType(name = "orientation")
 @XmlEnum
 public enum Orientation {
 
-    N {
+    N (0, 1) {
         @Override
-        protected Coordinate move(Coordinate coordinate) {
-            coordinate.setY(coordinate.getY() + 1);
-            return coordinate;
-        }
-
-        @Override
-        public Orientation previous() {
+        public Orientation turnToLeft() {
             return W;
         }
     },
-    E {
-        @Override
-        protected Coordinate move(Coordinate coordinate) {
-            coordinate.setX(coordinate.getX() + 1);
-            return coordinate;
-        }
-    },
-    S {
-        @Override
-        protected Coordinate move(Coordinate coordinate) {
-            coordinate.setY(coordinate.getY() - 1);
-            return coordinate;
-        }
-    },
-    W {
-        @Override
-        protected Coordinate move(Coordinate coordinate) {
-            coordinate.setX(coordinate.getX() - 1);
-            return coordinate;
-        }
-    };
+    E (1, 0),
+    S (0, -1),
+    W (-1, 0 );
 
-    public String value() {
-        return name();
+    private final int x;
+
+    private final int y;
+
+    Orientation(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 
-    public static Orientation fromValue(String v) {
-        return valueOf(v);
+    protected Location move(Location location) {
+        Location locBuild = new Location();
+        locBuild.setX(location.getX() + x);
+        locBuild.setY(location.getY() + y);
+        locBuild.setOrientation(location.getOrientation());
+        return locBuild;
     }
 
-    protected abstract Coordinate move(Coordinate coordinate);
-
-    public Orientation next() {
+    public Orientation turnToRight() {
         return Orientation.values()[(this.ordinal() + 1) % Orientation.values().length];
     }
 
-    public Orientation previous() {
+    public Orientation turnToLeft() {
         return Orientation.values()[(this.ordinal() - 1) % Orientation.values().length];
     }
 }

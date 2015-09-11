@@ -8,21 +8,16 @@
 
 package com.nyx.mower.model;
 
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ * <p>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -45,13 +40,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "lawn",
-    "mowers"
+        "lawn",
+        "mowers"
 })
 @XmlRootElement(name = "mowitnow")
 public class Mowitnow {
@@ -63,11 +56,9 @@ public class Mowitnow {
 
     /**
      * Gets the value of the lawn property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Lawn }
-     *     
+     *
+     * @return possible object is
+     * {@link Lawn }
      */
     public Lawn getLawn() {
         return lawn;
@@ -75,11 +66,9 @@ public class Mowitnow {
 
     /**
      * Sets the value of the lawn property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Lawn }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Lawn }
      */
     public void setLawn(Lawn value) {
         this.lawn = value;
@@ -87,11 +76,9 @@ public class Mowitnow {
 
     /**
      * Gets the value of the mowers property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Mowitnow.Mowers }
-     *     
+     *
+     * @return possible object is
+     * {@link Mowitnow.Mowers }
      */
     public Mowitnow.Mowers getMowers() {
         return mowers;
@@ -99,11 +86,9 @@ public class Mowitnow {
 
     /**
      * Sets the value of the mowers property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Mowitnow.Mowers }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Mowitnow.Mowers }
      */
     public void setMowers(Mowitnow.Mowers value) {
         this.mowers = value;
@@ -112,9 +97,9 @@ public class Mowitnow {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     * <p>
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     * <p>
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -126,12 +111,10 @@ public class Mowitnow {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "mower"
+            "mower"
     })
     public static class Mowers {
 
@@ -139,25 +122,23 @@ public class Mowitnow {
 
         /**
          * Gets the value of the mower property.
-         * 
+         * <p>
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the mower property.
-         * 
+         * <p>
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getMower().add(newItem);
          * </pre>
-         * 
-         * 
+         * <p>
+         * <p>
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Mower }
-         * 
-         * 
          */
         public List<Mower> getMower() {
             if (mower == null) {
@@ -167,5 +148,4 @@ public class Mowitnow {
         }
 
     }
-
 }
