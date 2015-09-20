@@ -1,13 +1,13 @@
 package com.nyx.mower.converter;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
 import com.beust.jcommander.IStringConverter;
 import com.nyx.mower.exception.StorageException;
 import com.nyx.mower.model.Mowitnow;
 import com.nyx.mower.service.XmlTransformationService;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class InstructionConverter implements IStringConverter<Mowitnow> {
 

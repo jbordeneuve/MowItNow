@@ -3,8 +3,8 @@ package com.nyx.mower;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.ParameterException;
 import com.nyx.mower.controller.MowerController;
-import com.nyx.mower.utils.Setting;
 import com.nyx.mower.model.Mowitnow;
+import com.nyx.mower.utils.Setting;
 
 public class App {
 
