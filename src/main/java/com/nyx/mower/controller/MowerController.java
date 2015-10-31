@@ -1,9 +1,7 @@
 package com.nyx.mower.controller;
 
-
+import com.nyx.mower.model.Gardener;
 import com.nyx.mower.model.Lawn;
-import com.nyx.mower.model.Move;
-import com.nyx.mower.model.Mower;
 
 import java.util.List;
 
@@ -11,14 +9,14 @@ public final class MowerController {
 
     private Lawn lawn;
 
-    private List<Mower> mowers;
+    private List<Gardener> gardener;
 
     public MowerController() {
     }
 
-    public MowerController(final Lawn lawn, final List<Mower> mowers) {
+    public MowerController(final Lawn lawn, final List<Gardener> gardeners) {
         this.lawn = lawn;
-        this.mowers = mowers;
+        this.gardener = gardeners;
     }
 
     public Lawn getLawn() {
@@ -29,26 +27,29 @@ public final class MowerController {
         this.lawn = lawn;
     }
 
-    public List<Mower> getMowers() {
-        return mowers;
+    public List<Gardener> getGardener() {
+        return gardener;
     }
 
-    public void setMowers(List<Mower> mowers) {
-        this.mowers = mowers;
+    public void setGardener(List<Gardener> gardener) {
+        this.gardener = gardener;
     }
 
-    public void run() {
+    public void run() {○
 
-        for (final Mower mowerIte : mowers) {
+        gardener.stream().forEach(ite ->
+                {
+                    ite.getPath().stream().allMatch(path -> {
 
-            for (final Move orderIte : mowerIte.getPath()) {
+                        if (this.getLawn().isStillOnField(ite.getMower().getLocation())) {
+                            path.move(ite.getMower());
 
-                if (!this.getLawn().isStillOnField(mowerIte.getLocation())) {
-                    break;
+                            return true;
+                        }
+
+                        return false;
+                    });
                 }
-
-                orderIte.move(mowerIte);
-            }
-        }
+        );
     }
 }

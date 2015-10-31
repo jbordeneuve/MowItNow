@@ -23,7 +23,7 @@ public class XmlTransformationServiceTest {
 
         assertThat(mowitnow).isNotNull();
         assertThat(mowitnow.getLawn()).isNotNull();
-        assertThat(mowitnow.getMowers()).isNotNull();
+        assertThat(mowitnow.getGardener()).isNotNull();
     }
 
     @Test(expected = ParserException.class)

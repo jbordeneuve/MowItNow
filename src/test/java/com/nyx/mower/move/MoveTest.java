@@ -37,12 +37,12 @@ public class MoveTest {
         final Mowitnow mowitnow = xmlTransformationService.extractData(getClass().getResourceAsStream("/files/valid.xml"));
 
         mowerController.setLawn(mowitnow.getLawn());
-        mowerController.setMowers(mowitnow.getMowers().getMower());
+        mowerController.setGardener(mowitnow.getGardener());
 
         mowerController.run();
 
-        Location firstMoweLocation = mowerController.getMowers().get(0).getLocation();
-        Location secondMoweLocation = mowerController.getMowers().get(1).getLocation();
+        Location firstMoweLocation = mowerController.getGardener().get(0).getMower().getLocation();
+        Location secondMoweLocation = mowerController.getGardener().get(1).getMower().getLocation();
 
         assertThat(firstMoweLocation.getX()).isEqualTo(1);
         assertThat(firstMoweLocation.getY()).isEqualTo(3);

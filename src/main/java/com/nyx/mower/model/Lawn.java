@@ -16,9 +16,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for lawn complex type.
- * 
+ * <p>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="lawn">
  *   &lt;complexContent>
@@ -28,8 +28,6 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "lawn")
@@ -43,11 +41,9 @@ public class Lawn {
 
     /**
      * Gets the value of the length property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
+     *
+     * @return possible object is
+     * {@link Integer }
      */
     public Integer getLength() {
         return length;
@@ -55,11 +51,9 @@ public class Lawn {
 
     /**
      * Sets the value of the length property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Integer }
      */
     public void setLength(Integer value) {
         this.length = value;
@@ -67,11 +61,9 @@ public class Lawn {
 
     /**
      * Gets the value of the width property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
+     *
+     * @return possible object is
+     * {@link Integer }
      */
     public Integer getWidth() {
         return width;
@@ -79,23 +71,17 @@ public class Lawn {
 
     /**
      * Sets the value of the width property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Integer }
      */
     public void setWidth(Integer value) {
         this.width = value;
     }
 
     /**
-     *
-     *
-     * @param location
-     *     allowed object is
-     *     {@link Location }
-     *
+     * @param location allowed object is
+     *                 {@link Location }
      */
     public boolean isStillOnField(Location location) {
         final int x = location.getX();

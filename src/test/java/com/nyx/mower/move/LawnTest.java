@@ -17,11 +17,9 @@ import static org.fest.assertions.Assertions.assertThat;
 @RunWith(Parameterized.class)
 public class LawnTest {
 
-    private Lawn lawn;
-
     private final Location location;
-
     private final boolean isStillOnField;
+    private Lawn lawn;
 
     public LawnTest(Integer x, Integer y, Boolean isStillOnField) {
         this.location = new Location();

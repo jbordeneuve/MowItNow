@@ -16,9 +16,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for location complex type.
- * 
+ * <p>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="location">
  *   &lt;complexContent>
@@ -29,8 +29,6 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "location")
@@ -46,10 +44,8 @@ public class Location {
     /**
      * Gets the value of the orientation property.
      *
-     * @return
-     *     possible object is
-     *     {@link Orientation }
-     *
+     * @return possible object is
+     * {@link Orientation }
      */
     public Orientation getOrientation() {
         return orientation;
@@ -58,10 +54,8 @@ public class Location {
     /**
      * Sets the value of the orientation property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Orientation }
-     *
+     * @param value allowed object is
+     *              {@link Orientation }
      */
     public void setOrientation(Orientation value) {
         this.orientation = value;
@@ -69,11 +63,9 @@ public class Location {
 
     /**
      * Gets the value of the x property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
+     *
+     * @return possible object is
+     * {@link Integer }
      */
     public Integer getX() {
         return x;
@@ -81,11 +73,9 @@ public class Location {
 
     /**
      * Sets the value of the x property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Integer }
      */
     public void setX(Integer value) {
         this.x = value;
@@ -93,11 +83,9 @@ public class Location {
 
     /**
      * Gets the value of the y property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
+     *
+     * @return possible object is
+     * {@link Integer }
      */
     public Integer getY() {
         return y;
@@ -105,11 +93,9 @@ public class Location {
 
     /**
      * Sets the value of the y property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Integer }
      */
     public void setY(Integer value) {
         this.y = value;

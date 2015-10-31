@@ -40,12 +40,9 @@ public class OrientationTest {
     @Test
     public void should_find_good_orientation() {
 
-        if (turnToRight)
-        {
+        if (turnToRight) {
             assertThat(this.start.turnToRight()).isEqualTo(this.end);
-        }
-        else
-        {
+        } else {
             assertThat(this.start.turnToLeft()).isEqualTo(this.end);
         }
     }

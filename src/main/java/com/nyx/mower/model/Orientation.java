@@ -1,48 +1,20 @@
-//
-// Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
-// Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2015.09.09 à 10:42:43 AM CEST 
-//
-
 package com.nyx.mower.model;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
+import java.util.Arrays;
+import java.util.List;
 
-/**
- * <p>
- * Classe Java pour orientation.
- * <p>
- * <p>
- * Le fragment de schéma suivant indique le contenu attendu figurant dans cette
- * classe.
- * <p>
- * <p>
- * <pre>
- * &lt;simpleType name="orientation">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="N"/>
- *     &lt;enumeration value="E"/>
- *     &lt;enumeration value="S"/>
- *     &lt;enumeration value="W"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- */
 @XmlType(name = "orientation")
 @XmlEnum
 public enum Orientation {
 
-    N (0, 1) {
-        @Override
-        public Orientation turnToLeft() {
-            return W;
-        }
-    },
-    E (1, 0),
-    S (0, -1),
-    W (-1, 0 );
+    N(0, 1),
+    E(1, 0),
+    S(0, -1),
+    W(-1, 0);
+
+    private static final List<Orientation> ORIENTATIONS = Arrays.asList(Orientation.values());
 
     private final int x;
 
@@ -62,10 +34,13 @@ public enum Orientation {
     }
 
     public Orientation turnToRight() {
-        return Orientation.values()[(this.ordinal() + 1) % Orientation.values().length];
+        int idx = ORIENTATIONS.indexOf(this);
+        return (idx < 0 || idx + 1 == ORIENTATIONS.size()) ? ORIENTATIONS.get(0) : ORIENTATIONS.get(idx + 1);
     }
 
     public Orientation turnToLeft() {
-        return Orientation.values()[(this.ordinal() - 1) % Orientation.values().length];
+        int idx = ORIENTATIONS.indexOf(this);
+        return (idx <= 0) ? ORIENTATIONS.get(ORIENTATIONS.size() - 1) : ORIENTATIONS.get(idx - 1);
     }
+
 }
