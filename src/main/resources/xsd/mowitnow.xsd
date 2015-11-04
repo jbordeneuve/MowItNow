@@ -44,14 +44,8 @@
 
     <xs:complexType name="mower">
         <xs:sequence>
-            <xs:element name="location" type="location"/>
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:complexType name="gardener">
-        <xs:sequence>
             <xs:element name="path" type="path"/>
-            <xs:element name="mower" type="mower"/>
+            <xs:element name="location" type="location"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -70,7 +64,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="lawn" type="lawn"/>
-                <xs:element name="gardener" type="gardener" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element name="mower" type="mower" maxOccurs="unbounded" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

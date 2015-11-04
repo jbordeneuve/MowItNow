@@ -19,7 +19,7 @@ public class App {
 
             final Mowitnow mowitnow = setting.mowitnow;
 
-            final MowerController moveService = new MowerController(mowitnow.getLawn(), mowitnow.getGardener());
+            final MowerController moveService = new MowerController(mowitnow.getLawn(), mowitnow.getMower());
 
             moveService.run();
         } catch (ParameterException e) {
