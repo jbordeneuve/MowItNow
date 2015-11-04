@@ -35,7 +35,7 @@ public final class MowerController {
         this.gardener = gardener;
     }
 
-    public void run() {○
+    public void run() {
 
         gardener.stream().forEach(ite ->
                 {
